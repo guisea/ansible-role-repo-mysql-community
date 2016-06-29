@@ -1,0 +1,28 @@
+---
+# tasks file for ansible-role-repo-mysql-community
+- name: Add mysql community repo file to yum
+  template:
+    src: mysql_community.repo.j2
+    dest: /etc/yum.repos.d/mysql-community.repo
+    owner: root
+    group: wheel
+    mode: 644
+    force: no
+- name: Copy GPG key
+  copy: 
+    src: RPM-GPG-KEY-mysql
+    dest: /etc/pki/rpm-gpg/
+    owner: root
+    group: wheel
+    mode: 644
+- name: Insert RPM key
+  rpm_key: 
+    state: present 
+    key: /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+- name: Configure version in repo
+  ini_file:
+    dest: /etc/yum.repos.d/mysql-community.repo
+    section: "mysql{{mysql_version}}-community"
+    option: enabled
+    value: 1
+  when: enable_mysql_repo

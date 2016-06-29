@@ -1,0 +1,5 @@
+---
+# defaults file for ansible-role-repo-mysql-community
+# Expected values (55,56 or 57) this denotes the major version of mysql to install
+mysql_version: 55
+enable_mysql_repo: false

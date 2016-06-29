@@ -1,0 +1,19 @@
+# Ignore Komodo Project Fluff
+.komodotools/
+*.komodoproject
+.vagrant/
+
+# Ignore any retry files from ansible
+*.retry
+
+# Ignore roles
+roles/*
+!roles/.gitkeep
+files/*
+!files/.gitkeep
+!files/authorized_keys/
+files/authorized_keys/*
+!files/authorized_keys/.gitkeep
+
+# Do not commit Vault password
+.vault_password.txt
