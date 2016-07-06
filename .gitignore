@@ -9,8 +9,6 @@
 # Ignore roles
 roles/*
 !roles/.gitkeep
-files/*
-!files/.gitkeep
 !files/authorized_keys/
 files/authorized_keys/*
 !files/authorized_keys/.gitkeep
